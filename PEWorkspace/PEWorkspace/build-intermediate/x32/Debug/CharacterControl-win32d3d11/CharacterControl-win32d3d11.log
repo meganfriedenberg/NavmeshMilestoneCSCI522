@@ -1,0 +1,20 @@
+﻿  SoldierNPC.cpp
+  SoldierNPCAnimationSM.cpp
+  SoldierNPCBehaviorSM.cpp
+  SoldierNPCMovementSM.cpp
+  ClientSpaceShip.cpp
+  ClientSpaceShipControls.cpp
+  ClientCharacterControlGame.cpp
+  ClientGameObjectManagerAddon.cpp
+  Events.cpp
+  GameObjectManagerAddon.cpp
+  GlobalRegistry.cpp
+  ServerCharacterControlGame.cpp
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\CharacterControl\Characters\SoldierNPC.cpp(91,36): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\CharacterControl\Characters\SoldierNPCBehaviorSM.cpp(104,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ServerGameObjectManagerAddon.cpp
+  ClientTank.cpp
+  WayPoint.cpp
+  main.cpp
+SoldierNPC.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+  CharacterControl-win32d3d11.vcxproj -> E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\build\CharacterControl-win32d3d11.exe

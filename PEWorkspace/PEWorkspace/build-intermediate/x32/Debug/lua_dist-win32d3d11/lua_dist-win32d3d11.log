@@ -1,0 +1,68 @@
+﻿  lapi.c
+  lauxlib.c
+  lbaselib.c
+  lcode.c
+  ldblib.c
+  ldebug.c
+  ldo.c
+  ldump.c
+  lfunc.c
+  lgc.c
+  linit.c
+  liolib.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lauxlib.c(544,22): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lauxlib.c(564,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lauxlib.c(574,12): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(39,46): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(41,32): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(49,42): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(165,9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(188,9): warning C4996: 'tmpfile': This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(209,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(261,11): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(279,7): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\liolib.c(399,32): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  llex.c
+  lmathlib.c
+  lmem.c
+  loadlib.c
+  lobject.c
+  lopcodes.c
+  loslib.c
+  lparser.c
+  lstate.c
+  lstring.c
+  lstrlib.c
+  ltable.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loslib.c(33,44): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loslib.c(71,3): warning C4996: 'tmpnam': This function or variable may be unsafe. Consider using tmpnam_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loslib.c(83,21): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loslib.c(144,11): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loslib.c(148,11): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(740,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(750,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(775,11): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(780,11): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(785,11): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(790,11): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lstrlib.c(808,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ltablib.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(145,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ltm.c
+  lundump.c
+  lvm.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(184,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(193,7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(196,9): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  lzio.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(198,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(204,7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(206,9): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(207,9): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(210,9): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lobject.c(211,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  print.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\lvm.c(53,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loadlib.c(339,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\Code\lua_dist\src\loadlib.c(604,12): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  lua_dist-win32d3d11.vcxproj -> E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\PEWorkspace\PEWorkspace\build\lua_dist-win32d3d11.lib
