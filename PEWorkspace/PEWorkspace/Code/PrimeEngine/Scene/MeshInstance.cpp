@@ -47,6 +47,8 @@ void MeshInstance::initFromFile(const char *assetName, const char *assetPackage,
 	Handle h = m_pContext->getMeshManager()->getAsset(assetName, assetPackage, threadOwnershipMask);
 
 	initFromRegisteredAsset(h);
+
+	m_assetName = assetName;
 }
 
 bool MeshInstance::hasSkinWeights()

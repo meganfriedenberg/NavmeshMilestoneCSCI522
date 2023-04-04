@@ -17,6 +17,8 @@
 #include "CharacterControl/Client/ClientSpaceShip.h"
 #include "CharacterControl/Client/ClientSpaceShipControls.h"
 
+#include "NavMesh.h" // added for M1
+
 
 using namespace PE::Components;
 using namespace CharacterControl::Components;
@@ -51,6 +53,8 @@ void CharacterControl::Register(PE::Components::LuaEnvironment *pLuaEnv, PE::Glo
 					ServerGameObjectManagerAddon::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 				ClientSpaceShip::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 				SpaceShipGameControls::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
+				Cell::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
+				//NavMesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 			}
 			// end root.CharacterControl.Components
 			pLuaEnv->EndRegistrationTable();

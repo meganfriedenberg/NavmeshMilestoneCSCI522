@@ -321,6 +321,13 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 
 				pSN->addComponent(hMeshInstance);
 
+
+				
+
+
+
+
+
 				RootSceneNode::Instance()->addComponent(hSN);
 				pSN->m_base.setPos(pRealEvent->m_pos);
 				pSN->m_base.setU(pRealEvent->m_u);

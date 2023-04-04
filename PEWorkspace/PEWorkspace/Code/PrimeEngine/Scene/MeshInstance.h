@@ -39,6 +39,8 @@ struct MeshInstance : public Component
 	Handle m_hAsset;
 
 	int m_skinDebugVertexId;
+
+	const char* m_assetName; // added for M1
 };
 
 }; // namespace Components

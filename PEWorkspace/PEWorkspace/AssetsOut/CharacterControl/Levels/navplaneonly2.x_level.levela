@@ -1,0 +1,2 @@
+LevelLoader.CreateGameObject("NavPlane",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 0.0, 0.0, -0.0, 1.0, 'navPlaneOnly2.x_NavPlane.lua', 'CharacterControl',0x4ece3f1e, 0xd32a11ed, 0xb4dc9ceb, 0xe89a41dc)
+

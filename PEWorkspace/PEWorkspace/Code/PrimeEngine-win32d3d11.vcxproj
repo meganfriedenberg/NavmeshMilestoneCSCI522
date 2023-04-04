@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NavMesh.h" />
     <ClInclude Include="PrimeEngine\APIAbstraction\APIAbstractionDefines.h" />
     <ClInclude Include="PrimeEngine\APIAbstraction\DirectX11\D3D11_GPUBuffers\D3D11_IndexBufferGPU.h" />
     <ClInclude Include="PrimeEngine\APIAbstraction\DirectX11\D3D11_GPUBuffers\D3D11_ResourceBufferGPU.h" />
@@ -259,6 +260,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AssetsOut\Default\GPUPrograms\nums_spe.c" />
+    <ClCompile Include="NavMesh.cpp" />
     <ClCompile Include="PrimeEngine\APIAbstraction\DirectX11\D3D11_GPUBuffers\D3D11_IndexBufferGPU.cpp" />
     <ClCompile Include="PrimeEngine\APIAbstraction\DirectX11\D3D11_GPUBuffers\D3D11_ResourceBufferGPU.cpp" />
     <ClCompile Include="PrimeEngine\APIAbstraction\DirectX11\D3D11_GPUBuffers\D3D11_VertexBufferGPU.cpp" />

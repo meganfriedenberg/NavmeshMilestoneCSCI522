@@ -15,6 +15,7 @@ namespace Components{
 	struct GameObjectManager;
 	struct DefaultGameControls;
 	struct MeshManager;
+	struct NavMesh; // added for M1
     
 };
 class Application;
@@ -38,6 +39,8 @@ struct GameContext
 	Components::MeshManager *getMeshManager(){return m_pMeshManager;}
 	Components::GameObjectManager *getGameObjectManager(){return m_pGameObjectManager;}
 	Components::DefaultGameControls *getDefaultGameControls(){return m_pDefaultGameControls;}
+	Components::NavMesh* getNavMesh() { return m_pNavMesh; } // added for M1
+
 	unsigned short getLuaCommandServerPort(){return m_luaCommandServerPort;}
 	bool getIsServer(){return m_isServer;}
 	template <typename T>
@@ -55,6 +58,7 @@ struct GameContext
 	Components::NetworkManager *m_pNetworkManager;
 	Components::GameObjectManager *m_pGameObjectManager;
 	Components::MeshManager *m_pMeshManager;
+	Components::NavMesh* m_pNavMesh; // added for M1
 	PE::MemoryArena m_defaultArena;
 	unsigned short m_luaCommandServerPort;
 	bool m_isServer;

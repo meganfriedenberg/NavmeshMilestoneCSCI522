@@ -8,6 +8,8 @@
 #include "PrimeEngine/Application/Application.h"
 #include "PrimeEngine/APIAbstraction/Effect/PEDepthStencilState.h"
 
+#include "NavMesh.h"
+
 #if APIABSTRACTION_PS3
 #include <cell/sysmodule.h>
 #include <sys/process.h>
@@ -153,6 +155,13 @@ namespace Components {
 		context.getGameObjectManager()->addDefaultComponents();
 	}
 	PEINFO("PE: PROGRESS: GameObjectManager Constructed\n");
+
+	{
+		Handle handle("NAVMESH", sizeof(NavMesh));
+		context.m_pNavMesh = new(handle) NavMesh(context, arena, handle);
+		context.getNavMesh()->addDefaultComponents();
+	}
+	PEINFO("PE: PROGRESS: NAVMESH Constructed\n");
 
 	Input::Construct(context, PE::MemoryArena_Client);
     
