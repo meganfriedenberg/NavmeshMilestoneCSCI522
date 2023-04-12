@@ -45,8 +45,7 @@ void Register(PE::Components::LuaEnvironment *pLuaEnv, PE::GlobalRegistry *pRegi
 						PE::Components::CameraSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 						PE::Components::JointSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 						PE::Components::TextSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
-						PE::Components::NavMesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
-						//PE::Components::NavMesh::InitalizeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
+						PE::Components::NavMesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly); // added for M1
 						PE::Components::InstancingSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 					PE::Components::MeshManager::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 					PE::Components::Mesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);

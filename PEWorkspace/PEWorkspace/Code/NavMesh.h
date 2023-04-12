@@ -88,11 +88,8 @@ namespace PE {
 
 			// component
 			virtual void addDefaultComponents();
-			// Individual events -------------------------------------------------------
-			// this method will set up some global gpu constants like game time, frame time
-			// it will also set light source gpu constants
 
-			// Singleton
+			// Singleton instancing
 			static NavMesh* Instance() { return s_hInstance.getObject<NavMesh>(); }
 			static Handle InstanceHandle() { return s_hInstance; }
 
@@ -101,16 +98,16 @@ namespace PE {
 			// Graph Functions
 			void connectGraph();
 			bool isConnected(Cell* a, Cell* b);
-			void transformToWorld(Matrix4x4 base);
+			bool isCloseEnough(float a, float b);
 
 			// Pathfinding Functions
 			std::vector<Vector3> findPath(Vector3 start, Vector3 end, int& length);
-			std::vector<Cell*> findPathThroughCells(Cell* pStartingCell, Cell* pFinalCell, Vector3 end);
+			std::vector<Cell*> findCellPath(Cell* pStartingCell, Cell* pFinalCell, Vector3 end);
 			void AStar(std::unordered_map<Cell*, Cell*>&, std::unordered_map<Cell*, int>&, Cell*, Cell*, Vector3);
+			float getHeuristic(Cell* a, Vector3 b);
 			std::vector<Vector3> buildPortals(std::vector<Cell*> cellPath, int& numPortals, Vector3 start, Vector3 end);
-			int SimpleStupidFunnelAlgorithm(std::vector<Vector3>& path, std::vector<Vector3>& portals, int numPortals);
-			Cell* findCell(Vector3 point);
-			float heuristic(Cell* a, Vector3 b);
+
+
 
 			inline Cell* getCell(int index)
 			{

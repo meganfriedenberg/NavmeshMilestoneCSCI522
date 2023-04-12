@@ -1,0 +1,2 @@
+LevelLoader.CreateGameObject("light",-1.781748, 0.0, -0.31844, 0.0, -0.0, 8.509846, -0.0, 0.0, 1.497184, 0.0, -8.377107, 0.0, 0.0, 525.355091, -0.0, 1.0, 'meganslevel.x_light.lua', 'CharacterControl',0xff683ee1, 0xd5cc11ed, 0xa51d9ceb, 0xe89a41dc)
+

@@ -19,6 +19,8 @@
 
 #include "Light.h"
 
+#include "NavMesh.h"
+
 // Sibling/Children includes
 
 #include "MeshInstance.h"
@@ -69,6 +71,52 @@ PE::Handle MeshManager::getAsset(const char *asset, const char *package, int &th
 		pMesh->addDefaultComponents();
 
 		pMesh->loadFromMeshCPU_needsRC(mcpu, threadOwnershipMask);
+
+		// navmesh code
+		std::string assetName = std::string(asset);
+		if (assetName.find("navplane") != std::string::npos)
+		{
+			IndexBufferCPU* indexBuffer = nullptr;
+			PositionBufferCPU* positionBuffer = nullptr;
+			VertexBufferGPU* vertexBuff = nullptr;
+			Array<PrimitiveTypes::Float32> m_values;
+
+
+			indexBuffer = mcpu.m_hIndexBufferCPU.getObject<IndexBufferCPU>();
+			positionBuffer = mcpu.m_hPositionBufferCPU.getObject<PositionBufferCPU>();
+
+			for (PrimitiveTypes::UInt32 i = 0; i < indexBuffer->m_values.m_size; i+=3) {
+
+				PE::Handle hCell("Cell", sizeof(Cell));
+				Cell* pCell = new(hCell) Cell(*m_pContext, m_arena, hCell);
+
+				// filling cell in
+				for (int pos = 0; pos < 3; pos++)
+				{
+					int vertexID = indexBuffer->m_values[i + pos];
+
+					pCell->verts[pos].m_x = positionBuffer->m_values[vertexID * 3 + 0];
+					pCell->verts[pos].m_y = positionBuffer->m_values[vertexID * 3 + 1];
+					pCell->verts[pos].m_z = positionBuffer->m_values[vertexID * 3 + 2];
+				}
+				//vert2 = indexBuffer->m_values[i];
+				//vert3 = positionBuffer->m_values[vert2 * 3];
+				//if (counter == 0)
+				//{
+				//	vert1 = indexBuffer->m_values[i];
+				//}
+
+				m_pContext->getNavMesh()->addComponent(hCell); // adds it in at index 1, not index 0. 
+			}
+
+			m_pContext->getNavMesh()->connectGraph();
+
+
+		}
+
+
+
+
 
 #if PE_API_IS_D3D11
 		// todo: work out how lods will work

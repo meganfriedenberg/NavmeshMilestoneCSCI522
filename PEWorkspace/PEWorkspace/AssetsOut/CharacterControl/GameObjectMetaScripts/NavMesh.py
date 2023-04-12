@@ -11,8 +11,8 @@ function fillMetaInfoTable(args) -- the script fromat requires existance of this
 args['myScript']="StaticMesh.lua"
 args['myScriptPackage']="Default"
 
-args['meshName'] = "navplaneonly.x_navplaneshape_mesh.mesha"
-args['meshPackage'] = "Default"
+args['meshName'] = "NavPlane.mesha"
+args['meshPackage'] = "NavMeshPlane"
 
 end -- required
 '''

@@ -158,7 +158,7 @@ def StoreMeshToFiles(lScene, meshName, skelRoot, finalVertices, trisSortedByMate
         s = matDict.get('shininess', 0)
         mf.write("args['shininess']=%f\n" % (s))
         
-        r = matDict.get('reflectivity', 0)
+        r = matDict.get('reflectivity', [0,0,0])
         mf.write("args['reflectivity']={%f, %f, %f}\n" % (r[0], r[1], r[2]))
         
         s = matDict.get('specular', [0,0,0])

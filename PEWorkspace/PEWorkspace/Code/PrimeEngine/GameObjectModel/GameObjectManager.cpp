@@ -321,8 +321,11 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 
 				pSN->addComponent(hMeshInstance);
 
-
-				
+				std::string assetName = std::string(pMeshInstance->m_assetName);
+				if (assetName.find("navplane") != std::string::npos)
+				{
+					bool b = true;
+				}
 
 
 
@@ -349,6 +352,8 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 		// only care about orientation
 		if (pRealEvent->hasCustomOrientation)
 		{
+
+
 			// need to reset the orientation
 			// try finding scene node
 			MeshInstance *pMeshInstance = exisitngObject.getObject<MeshInstance>();
@@ -360,6 +365,12 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 				pSN->m_base.setU(pRealEvent->m_u);
 				pSN->m_base.setV(pRealEvent->m_v);
 				pSN->m_base.setN(pRealEvent->m_n);
+
+
+				if (pMeshInstance->m_assetName == "NavMesh")
+				{
+					bool b = true;
+				}
 			}
 		}
 	}
