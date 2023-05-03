@@ -268,18 +268,22 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 
 	// if you only want A* uncomment this
 	
-	//if (!validPlayerPos)
+	if (!validPlayerPos)
 	{
 		std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
-
+		currPath.clear();
 		for (int i = 0; i < path.size() - 1; i++)
 		{
 			Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
 			currPath.push_back(triangleCenter);
 		}
+		currIndex = 1;
 	}
-	//if(validPlayerPos)
-	//	currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
+	if (validPlayerPos)
+	{
+		currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
+		currIndex = 1;
+	}
 
 	if(!currPath.empty())
 		while ((base.getPos() - currPath[currIndex]).lengthSqr() < 0.01f && currIndex < currPath.size() - 1)
