@@ -188,6 +188,19 @@ void SoldierNPCBehaviorSM::do_PRE_RENDER_needsRC(PE::Events::Event *pEvt)
 
 void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 {
+	SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
+	PE::Handle hSoldierSceneNode = pSol->getFirstComponentHandle<PE::Components::SceneNode>();
+	Matrix4x4 base = hSoldierSceneNode.getObject<PE::Components::SceneNode>()->m_worldTransform;
+
+	// get the cell the player is over
+	CameraSceneNode* pCamera = CameraManager::Instance()->getActiveCamera()->getCamSceneNode();
+	playerPos = pCamera->m_base.getPos();
+	playerPos.m_y = 0.0f; // navmesh is flat, camera height doesn't matter, but if it DOES matter, change this
+
+	float playerDistanceFromSoldier = (base.getPos() - playerPos).lengthSqr();
+
+	checkPlayerVisibility(base.getPos(), base.getN(), playerPos);
+
 	if (m_state == WAITING_FOR_WAYPOINT)
 	{
 		m_state = NAVMESH;
@@ -236,6 +249,13 @@ void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 		//	h.release();
 		//}
 	}
+	if (m_state == NAVMESH) // if for some reason this gets locked at the start from out of order execution
+	{
+		if (currIndex >= currPath.size())
+		{
+			updatePath(false);
+		}
+	}
 }
 
 void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasingPlayer)
@@ -270,14 +290,17 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 	
 	if (!validPlayerPos)
 	{
-		std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
-		currPath.clear();
-		for (int i = 0; i < path.size() - 1; i++)
+		if (currPath.size() < 3 || currIndex == currPath.size())
 		{
-			Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
-			currPath.push_back(triangleCenter);
+			std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
+			currPath.clear();
+			for (int i = 0; i < path.size() - 1; i++)
+			{
+				Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
+				currPath.push_back(triangleCenter);
+			}
+			currIndex = 1;
 		}
-		currIndex = 1;
 	}
 	if (validPlayerPos)
 	{
@@ -288,6 +311,28 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 	if(!currPath.empty())
 		while ((base.getPos() - currPath[currIndex]).lengthSqr() < 0.01f && currIndex < currPath.size() - 1)
 			currIndex++;
+
+}
+
+void CharacterControl::Components::SoldierNPCBehaviorSM::checkPlayerVisibility(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition)
+{
+	// see if a player is within 30 degrees of sight
+
+	Vector3 uDirection = playerPosition - soldierPos; // from the soldier to the player
+	Vector3 uNormalized = uDirection;
+	uNormalized.normalize();
+
+	float angle = acos(uNormalized.dotProduct(soldierForward));
+
+	if (angle < (3.1415f / 6)) // within 30 degrees range
+	{
+		CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(true);
+		OutputDebugStringA("PLAYER IS SEEN\n");
+	}
+	else
+	{
+		CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(false);
+	}
 
 }
 

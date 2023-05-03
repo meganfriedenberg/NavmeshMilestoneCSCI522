@@ -53,11 +53,14 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 	// added below for milestone
 
 	void updatePath(bool isChasingPlayer);
+	void checkPlayerVisibility(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition);
+	void setIsPlayerSeen(bool b) { isPlayerSeen = b; }
 
 	std::vector<Vector3> currPath;
 	int pathLen;
 	int currIndex = 0;
 	Vector3 playerPos; // can't make this a cell unfortunately
+	bool isPlayerSeen = false; // is the player visible to the soldier? if so, chase it. otherwise, move randomly
 };
 
 };
