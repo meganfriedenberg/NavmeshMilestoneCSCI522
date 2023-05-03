@@ -322,7 +322,7 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 				pSN->addComponent(hMeshInstance);
 
 				std::string assetName = std::string(pMeshInstance->m_assetName);
-				if (assetName.find("navplane") != std::string::npos)
+				if (assetName.find("NavPlane") != std::string::npos)
 				{
 					bool b = true;
 				}

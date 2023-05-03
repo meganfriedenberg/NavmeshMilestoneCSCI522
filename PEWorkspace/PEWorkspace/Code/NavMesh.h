@@ -99,14 +99,19 @@ namespace PE {
 			void connectGraph();
 			bool isConnected(Cell* a, Cell* b);
 			bool isCloseEnough(float a, float b);
+			Vector3 getTriangleCenter(Vector3 a, Vector3 b, Vector3 c);
 
 			// Pathfinding Functions
 			std::vector<Vector3> findPath(Vector3 start, Vector3 end, int& length);
 			std::vector<Cell*> findCellPath(Cell* pStartingCell, Cell* pFinalCell, Vector3 end);
 			void AStar(std::unordered_map<Cell*, Cell*>&, std::unordered_map<Cell*, int>&, Cell*, Cell*, Vector3);
+			Cell* getCurrentCell(Vector3 pos); // return the cell closest to this position
 			float getHeuristic(Cell* a, Vector3 b);
-			std::vector<Vector3> buildPortals(std::vector<Cell*> cellPath, int& numPortals, Vector3 start, Vector3 end);
+			float triarea2(Vector3 a, Vector3 b, Vector3 c);
+			std::vector<Vector3> buildPortals(std::vector<Cell*> cellPath, int& numPortals, Vector3 startPos, Vector3 goalPos);
+			void simpleStupidFunnelAlgorithm(std::vector<Vector3>& path, std::vector<Vector3>& portals, int numPortals, int& pathLength);
 
+			int totalCells;
 
 
 			inline Cell* getCell(int index)
@@ -115,17 +120,9 @@ namespace PE {
 				return hCell.getObject<Cell>();
 			}
 
-			inline float triangleArea(Vector3 a, Vector3 b, Vector3 c)
-			{
-				const float ax = b.m_x - a.m_x;
-				const float ay = b.m_z - a.m_z;
-				const float bx = c.m_x - a.m_x;
-				const float by = c.m_z - a.m_z;
-				return bx * ay - ax * by;
-			}
-
 		private:
 			static Handle s_hInstance;
+			int totalFullyConnectedTriangles = 0;
 
 		};
 

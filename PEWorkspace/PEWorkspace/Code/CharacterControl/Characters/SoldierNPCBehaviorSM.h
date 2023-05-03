@@ -5,6 +5,7 @@
 #include "PrimeEngine/Events/Component.h"
 
 #include "../Events/Events.h"
+#include <vector>
 
 namespace CharacterControl{
 
@@ -20,6 +21,7 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 		IDLE, // stand in place
 		WAITING_FOR_WAYPOINT, // have a name of waypoint to go to, but it has not been loaded yet
 		PATROLLING_WAYPOINTS,
+		NAVMESH, // added for milestone
 	};
 
 
@@ -47,6 +49,15 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 	bool m_havePatrolWayPoint;
 	char m_curPatrolWayPoint[32];
 	States m_state;
+
+	// added below for milestone
+
+	void updatePath(bool isChasingPlayer);
+
+	std::vector<Vector3> currPath;
+	int pathLen;
+	int currIndex = 0;
+	Vector3 playerPos; // can't make this a cell unfortunately
 };
 
 };

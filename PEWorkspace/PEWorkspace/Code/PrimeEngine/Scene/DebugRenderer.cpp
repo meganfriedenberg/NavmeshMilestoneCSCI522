@@ -174,6 +174,29 @@ void DebugRenderer::createLineMesh(bool hasTransform, const Matrix4x4 &transform
 	
 }
 
+void DebugRenderer::createLineTwoPoints(const Vector3& startPos, const Vector3& endPos, Vector3& color, float timeToLive, float scale /* = 1.0f*/)
+{
+	if (EnableDebugRendering && m_numAvailableLineLists)
+	{
+		int index = m_availableLineLists[--m_numAvailableLineLists];
+		Array<float>& list = m_lineLists[index];
+
+
+		m_lineListLifetimes[index] = timeToLive;
+		int numPoints = 0;
+
+		numPoints += 2;
+
+		list.reset(numPoints * 6 /*pos+color*/);
+
+		list.add(startPos.getX(), startPos.getY(), startPos.getZ());
+		list.add(color.getX(), color.getY(), color.getZ());
+		list.add(endPos.getX(), endPos.getY(), endPos.getZ());
+		list.add(color.getX(), color.getY(), color.getZ());
+	}
+}
+
+
 void DebugRenderer::createTextMesh(const char *str, bool isOverlay2D, bool is3D, bool is3DFacedToCamera, bool is3DFacedToCameraLockedYAxis, float timeToLive, Vector3 pos, float scale, int &threadOwnershipMask)
 {
 	if (EnableDebugRendering && m_numAvaialble)

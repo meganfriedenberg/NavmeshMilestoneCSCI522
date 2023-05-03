@@ -10,6 +10,9 @@
 #include "SoldierNPC.h"
 #include "PrimeEngine/Scene/SceneNode.h"
 #include "PrimeEngine/Render/IRenderer.h"
+#include "NavMesh.h"
+#include "PrimeEngine/Scene/CameraSceneNode.h"
+#include "PrimeEngine/Scene/CameraManager.h"
 using namespace PE::Components;
 using namespace PE::Events;
 using namespace CharacterControl::Events;
@@ -60,6 +63,44 @@ void SoldierNPCBehaviorSM::addDefaultComponents()
 void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Events::Event *pEvt)
 {
 	PEINFO("SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED\n");
+
+
+	if (m_state == NAVMESH)
+	{
+		m_state = NAVMESH;
+
+		currIndex++;
+
+		if (currIndex == currPath.size())
+		{
+			updatePath(false);
+		}
+
+		if (currIndex < currPath.size())
+		{
+			PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
+			Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
+			pEvt->m_running = false; // TODO change this
+
+
+			m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+			// release memory now that event is processed
+			h.release();
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	if (m_state == PATROLLING_WAYPOINTS)
 	{
@@ -132,46 +173,115 @@ void SoldierNPCBehaviorSM::do_PRE_RENDER_needsRC(PE::Events::Event *pEvt)
 				DebugRenderer::Instance()->createLineMesh(true, base, NULL, 0, 0);// send event while the array is on the stack
 		}
 	}
+	if (currPath.size() > 0)
+	{
+		SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
+		PE::Handle hSoldierSceneNode = pSol->getFirstComponentHandle<PE::Components::SceneNode>();
+		Matrix4x4 base = hSoldierSceneNode.getObject<PE::Components::SceneNode>()->m_worldTransform;
+		DebugRenderer::Instance()->createLineTwoPoints(base.getPos(), currPath[0], Vector3(1.0f, 1.0f, 1.0f), 0, 1.0f);
+		for (int i = 0; i < currPath.size()-1; i++)
+		{
+			DebugRenderer::Instance()->createLineTwoPoints(currPath[i], currPath[i+1], Vector3(1.0f, 0.0f, 1.0f), 0, 1.0f);
+		}
+	}
 }
 
 void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 {
 	if (m_state == WAITING_FOR_WAYPOINT)
 	{
-		if (m_havePatrolWayPoint)
-		{
-			ClientGameObjectManagerAddon *pGameObjectManagerAddon = (ClientGameObjectManagerAddon *)(m_pContext->get<CharacterControlContext>()->getGameObjectManagerAddon());
-			if (pGameObjectManagerAddon)
-			{
-				// search for waypoint object
-				WayPoint *pWP = pGameObjectManagerAddon->getWayPoint(m_curPatrolWayPoint);
-				if (pWP)
-				{
-					m_state = PATROLLING_WAYPOINTS;
-					PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
-					Events::SoldierNPCMovementSM_Event_MOVE_TO *pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(pWP->m_base.getPos());
+		m_state = NAVMESH;
 
-					m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
-					// release memory now that event is processed
-					h.release();
-				}
-			}
-		}
-		else
-		{
-			// should not happen, but in any case, set state to idle
-			m_state = IDLE;
+		updatePath(false);
 
-			PE::Handle h("SoldierNPCMovementSM_Event_STOP", sizeof(SoldierNPCMovementSM_Event_STOP));
-			SoldierNPCMovementSM_Event_STOP *pEvt = new(h) SoldierNPCMovementSM_Event_STOP();
+		PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
+		Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
 
-			m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
-			// release memory now that event is processed
-			h.release();
-		}
+		pEvt->m_running = false;
+
+		m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+		// release memory now that event is processed
+		h.release();
+
+
+		//if (m_havePatrolWayPoint)
+		//{
+		//	ClientGameObjectManagerAddon *pGameObjectManagerAddon = (ClientGameObjectManagerAddon *)(m_pContext->get<CharacterControlContext>()->getGameObjectManagerAddon());
+		//	if (pGameObjectManagerAddon)
+		//	{
+		//		// search for waypoint object
+		//		WayPoint *pWP = pGameObjectManagerAddon->getWayPoint(m_curPatrolWayPoint);
+		//		if (pWP)
+		//		{
+		//			m_state = PATROLLING_WAYPOINTS;
+		//			PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
+		//			Events::SoldierNPCMovementSM_Event_MOVE_TO *pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(pWP->m_base.getPos());
+
+		//			m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+		//			// release memory now that event is processed
+		//			h.release();
+		//		}
+		//	}
+		//}
+		//else
+		//{
+		//	// should not happen, but in any case, set state to idle
+		//	m_state = IDLE;
+
+		//	PE::Handle h("SoldierNPCMovementSM_Event_STOP", sizeof(SoldierNPCMovementSM_Event_STOP));
+		//	SoldierNPCMovementSM_Event_STOP *pEvt = new(h) SoldierNPCMovementSM_Event_STOP();
+
+		//	m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+		//	// release memory now that event is processed
+		//	h.release();
+		//}
 	}
 }
 
+void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasingPlayer)
+{
+	SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
+	PE::Handle hSoldierSceneNode = pSol->getFirstComponentHandle<PE::Components::SceneNode>();
+	Matrix4x4 base = hSoldierSceneNode.getObject<PE::Components::SceneNode>()->m_worldTransform;
+
+	// get the cell the player is over
+	CameraSceneNode* pCamera = CameraManager::Instance()->getActiveCamera()->getCamSceneNode();
+	playerPos = pCamera->m_base.getPos();
+	playerPos.m_y = 0.0f; // navmesh is flat, camera height doesn't matter, but if it DOES matter, change this
+	 
+	bool validPlayerPos = true;
+	Cell* playerCell = (m_pContext)->getNavMesh()->getCurrentCell(playerPos);
+	if (playerCell == nullptr)
+	{
+		// just randomly walk till then?
+		playerCell = ((m_pContext)->getNavMesh()->getCell(rand() % (m_pContext)->getNavMesh()->totalCells + 1));
+		validPlayerPos = false;
+	}
+
+	// Get the starting Vector3
+	Vector3 start = base.getPos();
+
+	
+	Cell* soldierCell = (m_pContext)->getNavMesh()->getCurrentCell(start);
+
+	Cell* randomCell = (m_pContext)->getNavMesh()->getCell(7);
+
+	// if you only want A* uncomment this
+	//std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
+
+	//for (int i = 0; i < path.size() - 1; i++)
+	//{
+	//	Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
+	//	currPath.push_back(triangleCenter);
+	//}
+	if(validPlayerPos)
+		currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
+
+	if(!currPath.empty())
+		while ((base.getPos() - currPath[currIndex]).lengthSqr() < 0.01f && currIndex < currPath.size() - 1)
+			currIndex++;
+
+}
 
 }}
 

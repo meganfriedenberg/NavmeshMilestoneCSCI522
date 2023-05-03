@@ -1,5 +1,5 @@
 t = {}
-t["mayaRep"] = "Maya/Meshes/NavMeshPlane/navmesh.mb"
+t["mayaRep"] = "Maya/Meshes/ComplexNavMeshPlane/NavMesh.mb"
 
 t["callerScript"] = '''
 -- this script is in lua format
@@ -11,8 +11,8 @@ function fillMetaInfoTable(args) -- the script fromat requires existance of this
 args['myScript']="StaticMesh.lua"
 args['myScriptPackage']="Default"
 
-args['meshName'] = "NavPlane.mesha"
-args['meshPackage'] = "NavMeshPlane"
+args['meshName'] = "ComplexNavPlane.mesha"
+args['meshPackage'] = "ComplexNavMeshPlane"
 
 end -- required
 '''

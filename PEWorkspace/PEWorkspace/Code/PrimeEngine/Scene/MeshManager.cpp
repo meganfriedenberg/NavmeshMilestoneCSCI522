@@ -74,7 +74,7 @@ PE::Handle MeshManager::getAsset(const char *asset, const char *package, int &th
 
 		// navmesh code
 		std::string assetName = std::string(asset);
-		if (assetName.find("navplane") != std::string::npos)
+		if (assetName.find("NavPlane") != std::string::npos)
 		{
 			IndexBufferCPU* indexBuffer = nullptr;
 			PositionBufferCPU* positionBuffer = nullptr;
