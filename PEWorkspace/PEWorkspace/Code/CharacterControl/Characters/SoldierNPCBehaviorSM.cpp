@@ -71,7 +71,7 @@ void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Even
 
 		currIndex++;
 
-		if (currIndex == currPath.size())
+		if (currIndex == currPath.size() || currIndex == pathLen)
 		{
 			updatePath(false);
 		}
@@ -267,15 +267,19 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 	Cell* randomCell = (m_pContext)->getNavMesh()->getCell(7);
 
 	// if you only want A* uncomment this
-	//std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
+	
+	//if (!validPlayerPos)
+	{
+		std::vector<Cell*> path = (m_pContext)->getNavMesh()->findCellPath(soldierCell, playerCell, playerCell->verts[1]);
 
-	//for (int i = 0; i < path.size() - 1; i++)
-	//{
-	//	Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
-	//	currPath.push_back(triangleCenter);
-	//}
-	if(validPlayerPos)
-		currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
+		for (int i = 0; i < path.size() - 1; i++)
+		{
+			Vector3 triangleCenter = (m_pContext)->getNavMesh()->getTriangleCenter(path[i]->verts[0], path[i]->verts[1], path[i]->verts[2]);
+			currPath.push_back(triangleCenter);
+		}
+	}
+	//if(validPlayerPos)
+	//	currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
 
 	if(!currPath.empty())
 		while ((base.getPos() - currPath[currIndex]).lengthSqr() < 0.01f && currIndex < currPath.size() - 1)
