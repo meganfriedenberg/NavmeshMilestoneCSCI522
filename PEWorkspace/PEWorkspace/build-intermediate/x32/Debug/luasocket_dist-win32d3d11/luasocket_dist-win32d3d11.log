@@ -1,1 +1,31 @@
-﻿  luasocket_dist-win32d3d11.vcxproj -> E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\build\luasocket_dist-win32d3d11.lib
+﻿  auxiliar.c
+  buffer.c
+  except.c
+  inet.c
+  io.c
+  luasocket.c
+  mime.c
+  options.c
+  select.c
+  tcp.c
+  timeout.c
+  udp.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\auxiliar.c(59,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\auxiliar.c(96,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\auxiliar.c(110,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  wsocket.c
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\inet.c(107,23): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\inet.c(159,27): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\inet.c(183,27): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\inet.c(231,31): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\inet.c(334,6): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\udp.c(205,27): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\options.c(37,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(336,8): warning C4996: 'gethostbyaddr': Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(344,8): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(364,19): warning C4477: 'fprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'WCHAR *'
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(364,19): message : consider using '%ls' in the format string
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(364,19): message : consider using '%lls' in the format string
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(364,19): message : consider using '%Ls' in the format string
+E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\Code\luasocket_dist\src\wsocket.c(364,19): message : consider using '%ws' in the format string
+  luasocket_dist-win32d3d11.vcxproj -> E:\NavmeshMilestoneCSCI522\NavmeshMilestoneCSCI522\522NavMeshMilestone\NavmeshMilestoneCSCI522\PEWorkspace\PEWorkspace\build\luasocket_dist-win32d3d11.lib

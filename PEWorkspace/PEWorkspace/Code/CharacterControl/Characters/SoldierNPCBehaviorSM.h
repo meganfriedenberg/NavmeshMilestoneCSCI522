@@ -55,12 +55,14 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 	void updatePath(bool isChasingPlayer);
 	void checkPlayerVisibility(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition);
 	void setIsPlayerSeen(bool b) { isPlayerSeen = b; }
+	Vector3 findClosestCell(Vector3 cellPos);
 
 	std::vector<Vector3> currPath;
 	int pathLen;
 	int currIndex = 0;
 	Vector3 playerPos; // can't make this a cell unfortunately
 	bool isPlayerSeen = false; // is the player visible to the soldier? if so, chase it. otherwise, move randomly
+	bool panicPathing = false; // if for some reason the state machine gets messed up, randomly select nodes
 };
 
 };

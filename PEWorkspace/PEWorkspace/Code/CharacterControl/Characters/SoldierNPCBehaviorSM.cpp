@@ -71,13 +71,14 @@ void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Even
 
 		currIndex++;
 
-		if (currIndex == currPath.size() || currIndex == pathLen)
+		if (currIndex >= currPath.size() || currIndex == pathLen)
 		{
 			updatePath(false);
 		}
 
 		if (currIndex < currPath.size())
 		{
+			OutputDebugStringA("navMove\n");
 			PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
 			Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
 			pEvt->m_running = false; // TODO change this
@@ -89,15 +90,6 @@ void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Even
 		}
 
 	}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -118,6 +110,7 @@ void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Even
 					StringOps::writeToString(pWP->m_name, m_curPatrolWayPoint, 32);
 
 					m_state = PATROLLING_WAYPOINTS;
+					OutputDebugStringA("here??\n");
 					PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
 					Events::SoldierNPCMovementSM_Event_MOVE_TO *pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(pWP->m_base.getPos());
 
@@ -200,6 +193,10 @@ void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 	float playerDistanceFromSoldier = (base.getPos() - playerPos).lengthSqr();
 
 	checkPlayerVisibility(base.getPos(), base.getN(), playerPos);
+	if ((m_pContext)->getNavMesh()->getCurrentCell(playerPos) == nullptr)
+	{
+		isPlayerSeen = false;
+	}
 
 	if (m_state == WAITING_FOR_WAYPOINT)
 	{
@@ -207,10 +204,11 @@ void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 
 		updatePath(false);
 
+		OutputDebugStringA("waitedMoved\n");
 		PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
 		Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
 
-		pEvt->m_running = false;
+		pEvt->m_running = isPlayerSeen;
 
 		m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
 		// release memory now that event is processed
@@ -255,6 +253,25 @@ void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 		{
 			updatePath(false);
 		}
+		else if (isPlayerSeen)
+		{
+			updatePath(true);
+			OutputDebugStringA("moving\n");
+			if (currIndex >= currPath.size())
+			{
+				panicPathing = true;
+				updatePath(false);
+			}
+			PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
+			Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
+
+			pEvt->m_running = isPlayerSeen;
+
+			m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+			// release memory now that event is processed
+			h.release();
+
+		}
 	}
 }
 
@@ -271,9 +288,9 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 	 
 	bool validPlayerPos = true;
 	Cell* playerCell = (m_pContext)->getNavMesh()->getCurrentCell(playerPos);
-	if (playerCell == nullptr)
+	if (playerCell == nullptr || panicPathing)
 	{
-		// just randomly walk till then?
+		// just randomly walk since the player either doesn't have a valid position, or out of order execution landed us here
 		playerCell = ((m_pContext)->getNavMesh()->getCell(rand() % (m_pContext)->getNavMesh()->totalCells + 1));
 		validPlayerPos = false;
 	}
@@ -283,12 +300,17 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 
 	
 	Cell* soldierCell = (m_pContext)->getNavMesh()->getCurrentCell(start);
+	if (soldierCell == nullptr)
+	{
+		Vector3 newCellPos = findClosestCell(start);
+		soldierCell = (m_pContext)->getNavMesh()->getCurrentCell(newCellPos);
+	}
 
 	Cell* randomCell = (m_pContext)->getNavMesh()->getCell(7);
 
 	// if you only want A* uncomment this
 	
-	if (!validPlayerPos)
+	if (!validPlayerPos || panicPathing)
 	{
 		if (currPath.size() < 3 || currIndex == currPath.size())
 		{
@@ -301,9 +323,11 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 			}
 			currIndex = 1;
 		}
+		panicPathing = false;
 	}
 	if (validPlayerPos)
 	{
+		currPath.clear();
 		currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
 		currIndex = 1;
 	}
@@ -334,6 +358,28 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::checkPlayerVisibility(V
 		CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(false);
 	}
 
+}
+
+Vector3 CharacterControl::Components::SoldierNPCBehaviorSM::findClosestCell(Vector3 cellPos)
+{
+	// will return a valid Vector3
+	Vector3 newPos = cellPos;
+	while ((m_pContext)->getNavMesh()->getCurrentCell(newPos) == nullptr)
+	{
+		float temp = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		temp *= 0.02f;
+		temp -= 0.01f;
+		newPos.m_x += temp;
+
+		temp = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		temp *= 0.02f;
+		temp -= 0.01f;
+		newPos.m_z += temp;
+
+
+	}
+
+	return newPos;
 }
 
 }}

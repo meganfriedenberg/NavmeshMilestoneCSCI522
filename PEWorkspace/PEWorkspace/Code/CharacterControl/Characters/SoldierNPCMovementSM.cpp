@@ -62,20 +62,40 @@ void SoldierNPCMovementSM::do_SoldierNPCMovementSM_Event_MOVE_TO(PE::Events::Eve
 {
 	SoldierNPCMovementSM_Event_MOVE_TO *pRealEvt = (SoldierNPCMovementSM_Event_MOVE_TO *)(pEvt);
 	
-	// change state of this state machine
-	m_state = WALKING_TO_TARGET;
-	m_targetPostion = pRealEvt->m_targetPosition;
+	if (!pRealEvt->m_running)
+	{
+		// change state of this state machine
+		m_state = WALKING_TO_TARGET;
+		m_targetPostion = pRealEvt->m_targetPosition;
 
-	// make sure the animations are playing
-	
-	PE::Handle h("SoldierNPCAnimSM_Event_WALK", sizeof(SoldierNPCAnimSM_Event_WALK));
-	Events::SoldierNPCAnimSM_Event_WALK *pOutEvt = new(h) SoldierNPCAnimSM_Event_WALK();
-	
-	SoldierNPC *pSol = getFirstParentByTypePtr<SoldierNPC>();
-	pSol->getFirstComponent<PE::Components::SceneNode>()->handleEvent(pOutEvt);
+		// make sure the animations are playing
 
-	// release memory now that event is processed
-	h.release();
+		PE::Handle h("SoldierNPCAnimSM_Event_WALK", sizeof(SoldierNPCAnimSM_Event_WALK));
+		Events::SoldierNPCAnimSM_Event_WALK* pOutEvt = new(h) SoldierNPCAnimSM_Event_WALK();
+
+		SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
+		pSol->getFirstComponent<PE::Components::SceneNode>()->handleEvent(pOutEvt);
+
+		// release memory now that event is processed
+		h.release();
+	}
+	else if (pRealEvt->m_running)
+	{
+		m_state = RUNNING_TO_TARGET;
+		m_targetPostion = pRealEvt->m_targetPosition;
+
+		// make sure the animations are playing
+
+		// Use memory pools, handler is created
+		PE::Handle h("SoldierNPCAnimSM_Event_RUN", sizeof(SoldierNPCAnimSM_Event_RUN));
+		Events::SoldierNPCAnimSM_Event_RUN* pOutEvt = new(h) SoldierNPCAnimSM_Event_RUN();
+
+		SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
+		pSol->getFirstComponent<PE::Components::SceneNode>()->handleEvent(pOutEvt);
+
+		// release memory now that event is processed
+		h.release();
+	}
 }
 
 void SoldierNPCMovementSM::do_SoldierNPCMovementSM_Event_STOP(PE::Events::Event *pEvt)
@@ -88,7 +108,7 @@ void SoldierNPCMovementSM::do_SoldierNPCMovementSM_Event_STOP(PE::Events::Event 
 
 void SoldierNPCMovementSM::do_UPDATE(PE::Events::Event *pEvt)
 {
-	if (m_state == WALKING_TO_TARGET)
+	if (m_state == WALKING_TO_TARGET || m_state == RUNNING_TO_TARGET)
 	{
 		// see if parent has scene node component
 		SceneNode *pSN = getParentsSceneNode();
