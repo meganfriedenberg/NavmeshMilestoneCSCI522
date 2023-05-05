@@ -3,6 +3,7 @@
 #include "PrimeEngine/Scene/SkeletonInstance.h"
 #include "GlobalRegistry.h"
 #include "NavMesh.h"
+#include "WallManager.h"
 
 
 namespace PE {
@@ -46,6 +47,7 @@ void Register(PE::Components::LuaEnvironment *pLuaEnv, PE::GlobalRegistry *pRegi
 						PE::Components::JointSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 						PE::Components::TextSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 						PE::Components::NavMesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly); // added for M1
+						PE::Components::WallManager::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly); // added for M3
 						PE::Components::InstancingSceneNode::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 					PE::Components::MeshManager::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);
 					PE::Components::Mesh::InitializeAndRegister(pLuaEnv, pRegistry, setLuaMetaDataOnly);

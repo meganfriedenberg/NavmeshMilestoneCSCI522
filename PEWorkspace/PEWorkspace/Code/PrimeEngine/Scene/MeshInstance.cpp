@@ -57,6 +57,11 @@ bool MeshInstance::hasSkinWeights()
 	return pMesh->m_hSkinWeightsCPU.isValid();
 }
 
+Mesh* PE::Components::MeshInstance::getMesh()
+{
+	return m_hAsset.getObject<Mesh>();
+}
+
 void MeshInstance::initFromRegisteredAsset(const PE::Handle &h)
 {
 	m_hAsset = h;

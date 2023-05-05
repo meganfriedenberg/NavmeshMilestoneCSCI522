@@ -15,7 +15,12 @@
       "ProjectGuid": "b5262fe1-a120-5833-8a8d-ee437626be9f",
       "DisplayName": "PrimeEngine-win32d3d11",
       "ColorIndex": 1
+    },
+    "f7c98426-632b-6234-ec98-a8e658f998f3": {
+      "ProjectGuid": "f7c98426-632b-6234-ec98-a8e658f998f3",
+      "DisplayName": "lua_dist-win32d3d11",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

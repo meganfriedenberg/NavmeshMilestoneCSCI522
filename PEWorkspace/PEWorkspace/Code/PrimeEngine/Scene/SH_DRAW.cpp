@@ -197,22 +197,72 @@ void SingleHandler_DRAW::do_GATHER_DRAWCALLS(Events::Event *pEvt)
     
     // debug testing of instance culling. do collision check instead.
     // remove false && to enable
-    if (false && pMeshCaller->m_performBoundingVolumeCulling)
+    if (pMeshCaller->m_performBoundingVolumeCulling)
     {
-        pMeshCaller->m_numVisibleInstances = 0;
+        pMeshCaller->m_numVisibleInstances;
         
+		// bounding box variables
+		Array<Vector3> boxVertices;
+		boxVertices.reset(8);
+
+
         for (int iInst = 0; iInst < pMeshCaller->m_instances.m_size; ++iInst)
         {
             MeshInstance *pInst = pMeshCaller->m_instances[iInst].getObject<MeshInstance>();
-            if (iInst % 2)
-            {
-                pInst->m_culledOut = false;
-                ++pMeshCaller->m_numVisibleInstances;
-            }
-            else
-            {
-                pInst->m_culledOut = true;
-            }
+            //if (iInst % 2)
+            //{
+            //    pInst->m_culledOut = false;
+            //    ++pMeshCaller->m_numVisibleInstances;
+            //}
+            //else
+            //{
+            //    pInst->m_culledOut = true;
+            //}
+
+			if (pInst != nullptr) {
+				Mesh* m = pInst->m_hAsset.getObject<Mesh>();
+
+
+				SceneNode* parentSceneNode = pInst->getFirstParentByTypePtr<SceneNode>();
+				if (parentSceneNode != nullptr) {
+					Matrix4x4 worldTrans = parentSceneNode->m_worldTransform;
+
+					Matrix4x4 localSpace1;
+					Matrix4x4 localSpace2;
+
+
+					localSpace1.setU(m->firstPoint); // 0
+					localSpace1.setV(m->secondPoint); // 1
+					localSpace1.setN(m->thirdPoint); // 2
+					localSpace1.setPos(m->fourthPoint); // 3
+					localSpace1.m[3][0] = 1;
+					localSpace1.m[3][1] = 1;
+					localSpace1.m[3][2] = 1;
+					localSpace1.m[3][3] = 1;
+					localSpace2.setU(m->fifthPoint); // 4
+					localSpace2.setV(m->sixthPoint); // 5
+					localSpace2.setN(m->seventhPoint); // 6
+					localSpace2.setPos(m->eighthPoint); // 7
+					localSpace2.m[3][0] = 1;
+					localSpace2.m[3][1] = 1;
+					localSpace2.m[3][2] = 1;
+					localSpace2.m[3][3] = 1;
+
+
+					Matrix4x4 translatedMatrix1 = worldTrans * localSpace1;
+					Matrix4x4 translatedMatrix2 = worldTrans * localSpace2;
+
+					localSpace1.clear();
+					localSpace2.clear();
+
+
+					pInst->minPoint = translatedMatrix1.getU();
+					pInst->maxPoint = translatedMatrix1.getPos();
+
+				}
+			}
+			boxVertices.clear();
+			boxVertices.reset(0);
         }
     }
     

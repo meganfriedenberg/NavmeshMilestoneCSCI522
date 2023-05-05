@@ -29,6 +29,8 @@ struct MeshInstance : public Component
 
 	void initFromRegisteredAsset(const PE::Handle &h);
 
+	Mesh* getMesh();
+
 	virtual ~MeshInstance(){}
 
 	virtual void addDefaultComponents();
@@ -41,6 +43,8 @@ struct MeshInstance : public Component
 	int m_skinDebugVertexId;
 
 	const char* m_assetName; // added for M1
+	Vector3 minPoint = Vector3(0.0f, 0.0f, 0.0f);
+	Vector3 maxPoint = Vector3(0.0f, 0.0f, 0.0f);
 };
 
 }; // namespace Components

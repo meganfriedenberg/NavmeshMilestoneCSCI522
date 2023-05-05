@@ -14,6 +14,8 @@
 #include "PrimeEngine/Scene/MeshInstance.h"
 #include "PrimeEngine/Scene/SkeletonInstance.h"
 
+#include "WallManager.h"
+
 namespace PE {
 namespace Components {
 
@@ -299,7 +301,7 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 			pMeshInstance->addDefaultComponents();
 
 			pMeshInstance->initFromFile(pRealEvent->m_meshFilename, pRealEvent->m_package, pRealEvent->m_threadOwnershipMask);
-			
+			Mesh* m = pMeshInstance->m_hAsset.getObject<Mesh>();
 		
 		m_pContext->getGPUScreen()->ReleaseRenderContextOwnership(pRealEvent->m_threadOwnershipMask);
 		
@@ -327,15 +329,33 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 					bool b = true;
 				}
 
-
-
-
-
 				RootSceneNode::Instance()->addComponent(hSN);
 				pSN->m_base.setPos(pRealEvent->m_pos);
 				pSN->m_base.setU(pRealEvent->m_u);
 				pSN->m_base.setV(pRealEvent->m_v);
 				pSN->m_base.setN(pRealEvent->m_n);
+
+				if (assetName.find("pplane") != std::string::npos)
+				{
+
+					Vector3 max = pSN->m_worldTransform * m->maxPoint;
+					Vector3 min = pSN->m_worldTransform * m->minPoint;
+
+
+
+					Handle hPC("Wall_Component", sizeof(WallComponent));
+					WallComponent* pPC = new(hPC) WallComponent(*m_pContext, m_arena, hPC, pMeshInstance);
+					pPC->addDefaultComponents();
+					//pPC->type = true; // not a sphere since no skeleton
+					pPC->mSceneNode = pSN;
+					pPC->maxPos = pMeshInstance->maxPoint;
+					pPC->minPos = pMeshInstance->minPoint;
+					pPC->mParent = pMeshInstance;
+					//pPC->mRotateScene = pRotateSN;
+					addComponent(pPC);
+				}
+
+
 			}
 			else
 			{
@@ -357,6 +377,7 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 			// need to reset the orientation
 			// try finding scene node
 			MeshInstance *pMeshInstance = exisitngObject.getObject<MeshInstance>();
+			Mesh* m = pMeshInstance->m_hAsset.getObject<Mesh>();
 			Handle hSN = pMeshInstance->getFirstParentByType<SceneNode>();
 			if (hSN.isValid())
 			{
@@ -370,6 +391,26 @@ void GameObjectManager::do_CREATE_MESH(Events::Event *pEvt)
 				if (pMeshInstance->m_assetName == "NavMesh")
 				{
 					bool b = true;
+				}
+
+				std::string assetName = std::string(pMeshInstance->m_assetName);
+				if (assetName.find("pplane") != std::string::npos)
+				{
+					Vector3 max = pSN->m_base * m->maxPoint;
+					Vector3 min = pSN->m_base * m->minPoint;
+
+
+
+					Handle hPC("Wall_Component", sizeof(WallComponent));
+					WallComponent* pPC = new(hPC) WallComponent(*m_pContext, m_arena, hPC, pMeshInstance);
+					pPC->addDefaultComponents();
+					//pPC->type = true; // not a sphere since no skeleton
+					pPC->mSceneNode = pSN;
+					pPC->maxPos = pMeshInstance->maxPoint;
+					pPC->minPos = pMeshInstance->minPoint;
+					pPC->mParent = pMeshInstance;
+					//pPC->mRotateScene = pRotateSN;
+					addComponent(pPC);
 				}
 			}
 		}

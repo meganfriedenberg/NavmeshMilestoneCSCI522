@@ -9,6 +9,7 @@
 #include "PrimeEngine/APIAbstraction/Effect/PEDepthStencilState.h"
 
 #include "NavMesh.h"
+#include "WallManager.h"
 
 #if APIABSTRACTION_PS3
 #include <cell/sysmodule.h>
@@ -162,6 +163,13 @@ namespace Components {
 		context.getNavMesh()->addDefaultComponents();
 	}
 	PEINFO("PE: PROGRESS: NAVMESH Constructed\n");
+
+	{
+		Handle handle("WALLMANAGER", sizeof(WallManager));
+		context.m_pWallManager = new(handle) WallManager(context, arena, handle);
+		context.getWallManager()->addDefaultComponents();
+	}
+	PEINFO("PE: PROGRESS: WALLMANAGER Constructed\n");
 
 	Input::Construct(context, PE::MemoryArena_Client);
     

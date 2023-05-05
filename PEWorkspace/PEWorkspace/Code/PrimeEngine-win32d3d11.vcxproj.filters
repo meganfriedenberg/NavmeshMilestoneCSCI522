@@ -1116,6 +1116,9 @@
     <ClInclude Include="NavMesh.h">
       <Filter>PrimeEngine\GameObjectModel</Filter>
     </ClInclude>
+    <ClInclude Include="WallManager.h">
+      <Filter>PrimeEngine\GameObjectModel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AssetsOut\Default\GPUPrograms\nums_spe.c">
@@ -1548,6 +1551,9 @@
       <Filter>PrimeEngine\Utils</Filter>
     </ClCompile>
     <ClCompile Include="NavMesh.cpp">
+      <Filter>PrimeEngine\GameObjectModel</Filter>
+    </ClCompile>
+    <ClCompile Include="WallManager.cpp">
       <Filter>PrimeEngine\GameObjectModel</Filter>
     </ClCompile>
   </ItemGroup>

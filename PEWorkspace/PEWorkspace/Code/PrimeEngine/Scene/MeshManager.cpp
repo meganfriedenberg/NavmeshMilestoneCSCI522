@@ -19,7 +19,8 @@
 
 #include "Light.h"
 
-#include "NavMesh.h"
+#include "NavMesh.h" // added for M1
+#include "WallManager.h" // added for M3
 
 // Sibling/Children includes
 
@@ -113,6 +114,93 @@ PE::Handle MeshManager::getAsset(const char *asset, const char *package, int &th
 
 
 		}
+		else // store bounding box values
+		{
+			PositionBufferCPU* positionBuffer = nullptr;
+			Array<PrimitiveTypes::Float32> m_values;
+
+			positionBuffer = pMesh->m_hPositionBufferCPU.getObject<PositionBufferCPU>();
+
+			Vector3 min = Vector3(FLT_MAX, FLT_MAX, FLT_MAX);
+			Vector3 max = Vector3(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+			int counter = 0;
+			for (int i = 0; i < positionBuffer->m_values.m_size; i++) {
+				float currNumber = positionBuffer->m_values[i];
+				if (counter == 0) // x y z
+				{
+					if (currNumber > max.getX())
+					{
+						max.m_x = currNumber;
+					}
+					if (currNumber < min.getX())
+					{
+						min.m_x = currNumber;
+					}
+				}
+				if (counter == 1)
+				{
+					if (currNumber > max.getY())
+					{
+						max.m_y = currNumber;
+
+					}
+					if (currNumber < min.getY())
+					{
+						min.m_y = currNumber;
+					}
+
+
+				}
+				if (counter == 2)
+				{
+					if (currNumber > max.getZ())
+					{
+						max.m_z = currNumber;
+					}
+
+					if (currNumber < min.getZ())
+					{
+						min.m_z = currNumber;
+					}
+
+				}
+				counter++;
+				if (counter == 3)
+				{
+					counter = 0;
+				}
+
+			}
+
+
+			pMesh->firstPoint = Vector3(min.getX(), min.getY(), min.getZ()); // min min min
+			pMesh->secondPoint = Vector3(min.getX(), min.getY(), max.getZ()); // min min max
+			pMesh->thirdPoint = Vector3(min.getX(), max.getY(), min.getZ()); // min max min
+			pMesh->fourthPoint = Vector3(min.getX(), max.getY(), max.getZ()); // min max max
+
+			pMesh->fifthPoint = Vector3(max.getX(), min.getY(), min.getZ()); // max min min
+			pMesh->sixthPoint = Vector3(max.getX(), min.getY(), max.getZ()); // max min max
+			pMesh->seventhPoint = Vector3(max.getX(), max.getY(), min.getZ()); // SHOULD BE max max min, there was two of fourthPoint (min,max,max), pMesh->seventhPoint = Vector3(min.getX(), max.getY(), max.getZ());
+			pMesh->eighthPoint = Vector3(max.getX(), max.getY(), max.getZ()); // max max max
+
+			pMesh->maxPoint = pMesh->eighthPoint;
+			pMesh->minPoint = pMesh->firstPoint;
+
+			positionBuffer->m_values.clear();
+			m_values.clear();
+			// end bounding box code
+		}
+
+		//if (assetName.find("pplane") != std::string::npos)
+		//{
+		//	Handle hPC("Wall_Component", sizeof(WallComponent));
+		//	WallComponent* pPC = new(hPC) WallComponent(*m_pContext, m_arena, hPC, pMesh);
+		//	pPC->addDefaultComponents();
+		//	//pPC->type = true; // not a sphere since no skeleton
+		//	//pPC->mSceneNode = pMainSN;
+		//	//pPC->mRotateScene = pRotateSN;
+		//	addComponent(pPC);
+		//}
 
 
 

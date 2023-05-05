@@ -9,6 +9,7 @@
 #if APIABSTRACTION_D3D9 | APIABSTRACTION_D3D11 | defined(APIABSTRACTION_OGL)
 #define _USE_MATH_DEFINES
 #include <math.h>
+
 #endif
 
 // Inter-Engine includes
@@ -48,6 +49,18 @@ namespace pemath
 #endif
 	}
 	PE_INLINE float clamp(float minv, float maxv, float v) { return max(min(maxv, v), minv); }
+
+	PE_INLINE bool isZero(float val)
+	{
+		if (fabs(val) <= 0.001f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
 

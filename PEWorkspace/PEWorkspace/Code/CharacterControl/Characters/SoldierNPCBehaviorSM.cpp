@@ -10,7 +10,10 @@
 #include "SoldierNPC.h"
 #include "PrimeEngine/Scene/SceneNode.h"
 #include "PrimeEngine/Render/IRenderer.h"
+
 #include "NavMesh.h"
+#include "WallManager.h"
+
 #include "PrimeEngine/Scene/CameraSceneNode.h"
 #include "PrimeEngine/Scene/CameraManager.h"
 using namespace PE::Components;
@@ -73,6 +76,7 @@ void SoldierNPCBehaviorSM::do_SoldierNPCMovementSM_Event_TARGET_REACHED(PE::Even
 
 		if (currIndex >= currPath.size() || currIndex == pathLen)
 		{
+			panicPathing = true;
 			updatePath(false);
 		}
 
@@ -310,7 +314,7 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 
 	// if you only want A* uncomment this
 	
-	if (!validPlayerPos || panicPathing)
+	if (!validPlayerPos || panicPathing || !isPlayerSeen)
 	{
 		if (currPath.size() < 3 || currIndex == currPath.size())
 		{
@@ -325,7 +329,7 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 		}
 		panicPathing = false;
 	}
-	if (validPlayerPos)
+	if (validPlayerPos && isPlayerSeen)
 	{
 		currPath.clear();
 		currPath = (m_pContext)->getNavMesh()->findPath(start, playerPos, pathLen); // then call simple stupid funnel
@@ -350,13 +354,38 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::checkPlayerVisibility(V
 
 	if (angle < (3.1415f / 6)) // within 30 degrees range
 	{
-		CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(true);
-		OutputDebugStringA("PLAYER IS SEEN\n");
+		bool wallCheck = checkWalls(soldierPos, soldierForward, playerPos);
+		if (wallCheck)
+		{
+			CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(true);
+			OutputDebugStringA("PLAYER IS SEEN\n");
+		}
+		else
+		{
+			CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(false);
+			OutputDebugStringA("CAN'T SEE THROUGH WALLS\n");
+		}
 	}
 	else
 	{
 		CharacterControl::Components::SoldierNPCBehaviorSM::setIsPlayerSeen(false);
 	}
+
+}
+
+bool CharacterControl::Components::SoldierNPCBehaviorSM::checkWalls(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition)
+{
+	WallManager* pWallManager = (m_pContext)->getWallManager();
+	LineSegment fromSoldierToPlayer;
+	fromSoldierToPlayer.m_startPoint = soldierPos;
+	fromSoldierToPlayer.m_endPoint = playerPosition;
+
+	Vector3 hitPoint;
+
+	bool bHitWall = pWallManager->RayCast(fromSoldierToPlayer, &hitPoint, true); // returns true if the ray hits any walls
+	
+
+	return !(bHitWall); // return false if the check fails
 
 }
 

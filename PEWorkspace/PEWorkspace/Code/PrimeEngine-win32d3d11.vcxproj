@@ -257,6 +257,7 @@
     <ClInclude Include="PrimeEngine\Utils\Queue.h" />
     <ClInclude Include="PrimeEngine\Utils\StrToHandleMap.h" />
     <ClInclude Include="PrimeEngine\Utils\StringOps.h" />
+    <ClInclude Include="WallManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AssetsOut\Default\GPUPrograms\nums_spe.c" />
@@ -403,6 +404,7 @@
     <ClCompile Include="PrimeEngine\Utils\ErrorHandling.cpp" />
     <ClCompile Include="PrimeEngine\Utils\Networkable.cpp" />
     <ClCompile Include="PrimeEngine\Utils\PEString.cpp" />
+    <ClCompile Include="WallManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\AssetsOut\Basic\Levels\basic.x_PEObject0_polySu.lua" />

@@ -54,6 +54,7 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 
 	void updatePath(bool isChasingPlayer);
 	void checkPlayerVisibility(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition);
+	bool checkWalls(Vector3 soldierPos, Vector3 soldierForward, Vector3 playerPosition);
 	void setIsPlayerSeen(bool b) { isPlayerSeen = b; }
 	Vector3 findClosestCell(Vector3 cellPos);
 

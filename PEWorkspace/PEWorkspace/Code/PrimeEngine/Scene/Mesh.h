@@ -100,6 +100,20 @@ struct Mesh : public Component
 	bool m_bDrawControl;
     
     bool m_performBoundingVolumeCulling;
+
+	// bounding box vertices
+	Vector3 firstPoint;
+	Vector3 secondPoint;
+	Vector3 thirdPoint;
+	Vector3 fourthPoint;
+	Vector3 fifthPoint;
+	Vector3 sixthPoint;
+	Vector3 seventhPoint;
+	Vector3 eighthPoint;
+
+	Vector3 maxPoint;
+	Vector3 minPoint;
+
 };
 
 }; // namespace Components

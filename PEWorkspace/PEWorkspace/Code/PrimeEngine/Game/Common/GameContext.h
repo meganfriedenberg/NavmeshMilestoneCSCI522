@@ -16,6 +16,7 @@ namespace Components{
 	struct DefaultGameControls;
 	struct MeshManager;
 	struct NavMesh; // added for M1
+	struct WallManager; // added for M3
     
 };
 class Application;
@@ -40,6 +41,7 @@ struct GameContext
 	Components::GameObjectManager *getGameObjectManager(){return m_pGameObjectManager;}
 	Components::DefaultGameControls *getDefaultGameControls(){return m_pDefaultGameControls;}
 	Components::NavMesh* getNavMesh() { return m_pNavMesh; } // added for M1
+	Components::WallManager* getWallManager() { return m_pWallManager; } // added for M3
 
 	unsigned short getLuaCommandServerPort(){return m_luaCommandServerPort;}
 	bool getIsServer(){return m_isServer;}
@@ -59,6 +61,7 @@ struct GameContext
 	Components::GameObjectManager *m_pGameObjectManager;
 	Components::MeshManager *m_pMeshManager;
 	Components::NavMesh* m_pNavMesh; // added for M1
+	Components::WallManager* m_pWallManager; // added for M3
 	PE::MemoryArena m_defaultArena;
 	unsigned short m_luaCommandServerPort;
 	bool m_isServer;
