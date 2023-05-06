@@ -1,0 +1,140 @@
+LevelLoader.CreateGameObject("PEObject101_TspotRep",1.0, 0.0, -0.0, 0.0, 0.0, -0.0, 1.0, 0.0, -0.0, -1.0, -0.0, 0.0, 917.0, 279.0, 1956.0, 1.0, 'ccontrollvl3x.x_PEObject101_Tspo.lua', 'ComplexNavMeshPlane',0x12f46e5e, 0xeae611ed, 0x8a639ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject95_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, -937.005607, 0.0, -1239.003133, 1.0, 'ccontrollvl3x.x_PEObject95_Tstre.lua', 'ComplexNavMeshPlane',0xeed54230, 0xeae411ed, 0xbb0c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject20_tArrow",-0.883695, 0.0, -0.468063, 0.0, -0.0, 1.0, -0.0, 0.0, 0.468063, 0.0, -0.883695, 0.0, -1196.0, 0.0, -811.0, 1.0, 'ccontrollvl3x.x_PEObject20_tArro.lua', 'ComplexNavMeshPlane',0xec53cb5e, 0x1c5411e0, 0x955f001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject54_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1865.0, 100.0, -319.0, 1.0, 'ccontrollvl3x.x_PEObject54_pPlan.lua', 'ComplexNavMeshPlane',0x56c2a3c0, 0xeada11ed, 0xb1c19ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject93_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 2170.327, 100.0, 1232.0, 1.0, 'ccontrollvl3x.x_PEObject93_pPlan.lua', 'ComplexNavMeshPlane',0xea19f980, 0xeae311ed, 0x892c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject107_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 1103.0, 0.0, -573.0, 1.0, 'ccontrollvl3x.x_PEObject107_nazi.lua', 'ComplexNavMeshPlane',0x47d74ccf, 0xeb1b11ed, 0xa2db9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject72_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -8.326546, 100.0, 933.0, 1.0, 'ccontrollvl3x.x_PEObject72_pPlan.lua', 'ComplexNavMeshPlane',0x51b22770, 0xeadf11ed, 0xb4579ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject71_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1247.0, 100.0, 316.0, 1.0, 'ccontrollvl3x.x_PEObject71_pPlan.lua', 'ComplexNavMeshPlane',0x70643c8f, 0xeade11ed, 0x846f9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject70_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1869.0, 100.0, -914.0, 1.0, 'ccontrollvl3x.x_PEObject70_pPlan.lua', 'ComplexNavMeshPlane',0x4b29bfe1, 0xeade11ed, 0x80959ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject19_tArrow",-0.488974, 0.0, 0.872298, 0.0, 0.0, 1.0, -0.0, 0.0, -0.872298, -0.0, -0.488974, 0.0, -1437.0, 0.0, 73.0, 1.0, 'ccontrollvl3x.x_PEObject19_tArro.lua', 'ComplexNavMeshPlane',0xe01bbe1e, 0x1c5411e0, 0xa2f0001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject88_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 301.27, 100.0, -2466.0, 1.0, 'ccontrollvl3x.x_PEObject88_pPlan.lua', 'ComplexNavMeshPlane',0x3ee84a80, 0xeae311ed, 0xbdb09ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject11_polySurface1",0.505334, -0.824007, 0.256223, 0.0, -0.453042, -0.000628, 0.891489, 0.0, -0.734432, -0.56658, -0.373627, 0.0, 188.463853, 415.850019, 31.255456, 1.0, 'ccontrollvl3x.x_PEObject11_polyS.lua', 'ComplexNavMeshPlane',0x460ec6d1, 0x146911e0, 0x86d30025, 0xd3ac504f)
+
+LevelLoader.CreateGameObject("PEObject57_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1869.0, 100.0, -2160.0, 1.0, 'ccontrollvl3x.x_PEObject57_pPlan.lua', 'ComplexNavMeshPlane',0x2bef169e, 0xeadb11ed, 0x9de39ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject92_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 2170.327, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject92_pPlan.lua', 'ComplexNavMeshPlane',0xca4f3dde, 0xeae311ed, 0x9f5b9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject96_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, -940.005607, 0.0, -3179.003133, 1.0, 'ccontrollvl3x.x_PEObject96_Tstre.lua', 'ComplexNavMeshPlane',0x06742a00, 0xeae511ed, 0x804c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject82_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, 931.0, 100.0, -1856.0, 1.0, 'ccontrollvl3x.x_PEObject82_pPlan.lua', 'ComplexNavMeshPlane',0x96f20ce1, 0xeae111ed, 0x9ea69ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject59_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1844.0, 100.0, -1536.0, 1.0, 'ccontrollvl3x.x_PEObject59_pPlan.lua', 'ComplexNavMeshPlane',0x7f2fa640, 0xeadb11ed, 0xb2ff9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject87_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 2158.0, 100.0, -1844.0, 1.0, 'ccontrollvl3x.x_PEObject87_pPlan.lua', 'ComplexNavMeshPlane',0x1ed5fe8f, 0xeae311ed, 0xabe79ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject84_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, -955.0, 100.0, 1234.0, 1.0, 'ccontrollvl3x.x_PEObject84_pPlan.lua', 'ComplexNavMeshPlane',0x56634c0f, 0xeae211ed, 0xb6069ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject85_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, -955.0, 100.0, 612.0, 1.0, 'ccontrollvl3x.x_PEObject85_pPlan.lua', 'ComplexNavMeshPlane',0xca650540, 0xeae211ed, 0x933a9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject56_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -8.326546, 100.0, -2160.0, 1.0, 'ccontrollvl3x.x_PEObject56_pPlan.lua', 'ComplexNavMeshPlane',0xccad6840, 0xeada11ed, 0x85df9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject42_TspotRep",1.0, 0.0, 0.0, 0.0, -0.0, 0.0, 1.0, 0.0, -0.0, -1.0, 0.0, 0.0, 104.671377, 249.971079, 471.89208, 1.0, 'ccontrollvl3x.x_PEObject42_Tspot.lua', 'ComplexNavMeshPlane',0x4434ae2e, 0x467411e2, 0x98f20025, 0xd3ac504f)
+
+LevelLoader.CreateGameObject("PEObject33_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 105.408753, 0.0, 471.322242, 1.0, 'ccontrollvl3x.x_PEObject33_Tstre.lua', 'ComplexNavMeshPlane',0x42883a0f, 0x1c6a11e0, 0x97b5001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject55_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1865.0, 100.0, 1534.0, 1.0, 'ccontrollvl3x.x_PEObject55_pPlan.lua', 'ComplexNavMeshPlane',0x9e1d16b0, 0xeada11ed, 0x97189ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject69_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -4.0, 100.0, -2759.0, 1.0, 'ccontrollvl3x.x_PEObject69_pPlan.lua', 'ComplexNavMeshPlane',0x2032738f, 0xeade11ed, 0x803c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject75_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, 1557.327, 100.0, 1232.0, 1.0, 'ccontrollvl3x.x_PEObject75_pPlan.lua', 'ComplexNavMeshPlane',0x76bcec1e, 0xeae011ed, 0xbabb9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject100_TspotRep",1.0, 0.0, -0.0, 0.0, 0.0, -0.0, 1.0, 0.0, -0.0, -1.0, -0.0, 0.0, 2630.0, 285.0, 300.0, 1.0, 'ccontrollvl3x.x_PEObject100_Tspo.lua', 'ComplexNavMeshPlane',0xdf0105f0, 0xeae511ed, 0xbb329ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject73_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -309.673, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject73_pPlan.lua', 'ComplexNavMeshPlane',0xe26d8bb0, 0xeadf11ed, 0xb1c29ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject50_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1269.0, 100.0, 1535.0, 1.0, 'ccontrollvl3x.x_PEObject50_pPlan.lua', 'ComplexNavMeshPlane',0x9cbf9f00, 0xead911ed, 0x8de69ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject66_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1869.0, 100.0, -2755.0, 1.0, 'ccontrollvl3x.x_PEObject66_pPlan.lua', 'ComplexNavMeshPlane',0xb3753b70, 0xeadd11ed, 0x9d119ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject67_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1866.0, 100.0, -2755.0, 1.0, 'ccontrollvl3x.x_PEObject67_pPlan.lua', 'ComplexNavMeshPlane',0xd5302e4f, 0xeadd11ed, 0x8ae89ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject68_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -1.0, 0.0, -0.0, 0.25, 0.0, 0.0, 1240.0, 100.0, -2755.0, 1.0, 'ccontrollvl3x.x_PEObject68_pPlan.lua', 'ComplexNavMeshPlane',0xf7e0cbcf, 0xeadd11ed, 0xaa9e9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject90_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, -1563.673, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject90_pPlan.lua', 'ComplexNavMeshPlane',0x8a28aa2e, 0xeae311ed, 0xbb499ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject64_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1865.0, 100.0, -914.0, 1.0, 'ccontrollvl3x.x_PEObject64_pPlan.lua', 'ComplexNavMeshPlane',0x72de80cf, 0xeadd11ed, 0x8b239ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject49_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -8.326546, 100.0, 1528.0, 1.0, 'ccontrollvl3x.x_PEObject49_pPlan.lua', 'ComplexNavMeshPlane',0x79fb20cf, 0xead811ed, 0x8b7a9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject104_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, -1343.0, 0.0, -1107.0, 1.0, 'ccontrollvl3x.x_PEObject104_nazi.lua', 'ComplexNavMeshPlane',0x329ce1e1, 0xeb1b11ed, 0x95489ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject76_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -2182.0, 100.0, 1215.0, 1.0, 'ccontrollvl3x.x_PEObject76_pPlan.lua', 'ComplexNavMeshPlane',0xa20e8d70, 0xeae011ed, 0x94779ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject89_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, -1563.673, 100.0, -2462.0, 1.0, 'ccontrollvl3x.x_PEObject89_pPlan.lua', 'ComplexNavMeshPlane',0x64af76cf, 0xeae311ed, 0x82d59ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject16_tArrow",0.875067, 0.0, 0.484002, 0.0, 0.0, 1.0, -0.0, 0.0, -0.484002, -0.0, 0.875067, 0.0, 981.0, 0.0, -357.0, 1.0, 'ccontrollvl3x.x_PEObject16_tArro.lua', 'ComplexNavMeshPlane',0x76f9d530, 0x1c5411e0, 0xbea5001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject79_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -2176.673, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject79_pPlan.lua', 'ComplexNavMeshPlane',0x1472ea4f, 0xeae111ed, 0x88ff9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject78_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -316.0, 100.0, 1226.0, 1.0, 'ccontrollvl3x.x_PEObject78_pPlan.lua', 'ComplexNavMeshPlane',0xe91fc25e, 0xeae011ed, 0xaac59ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject77_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -2182.0, 100.0, 605.0, 1.0, 'ccontrollvl3x.x_PEObject77_pPlan.lua', 'ComplexNavMeshPlane',0xc44d7d5e, 0xeae011ed, 0x85f19ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject61_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -2.0, 100.0, -914.0, 1.0, 'ccontrollvl3x.x_PEObject61_pPlan.lua', 'ComplexNavMeshPlane',0xd10d06f0, 0xeadc11ed, 0xb80e9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject80_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -2176.673, 100.0, -2462.0, 1.0, 'ccontrollvl3x.x_PEObject80_pPlan.lua', 'ComplexNavMeshPlane',0x3dd73a8f, 0xeae111ed, 0xb6539ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject21_tArrow",0.802985, 0.0, 0.596, 0.0, 0.0, 1.0, -0.0, 0.0, -0.596, -0.0, 0.802985, 0.0, 57.0, 0.0, -1177.0, 1.0, 'ccontrollvl3x.x_PEObject21_tArro.lua', 'ComplexNavMeshPlane',0x90b4a1b0, 0x1c6011e0, 0x91c1001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject15_tArrow",0.412808, 0.0, -0.910818, 0.0, -0.0, 1.0, -0.0, 0.0, 0.910818, 0.0, 0.412808, 0.0, 457.839881, 0.0, 149.179105, 1.0, 'ccontrollvl3x.x_PEObject15_tArro.lua', 'ComplexNavMeshPlane',0x7077e0cf, 0x1c5411e0, 0xb14b001b, 0x213b583a)
+
+LevelLoader.CreateGameObject("PEObject103_TspotRep",1.0, 0.0, -0.0, 0.0, 0.0, -0.0, 1.0, 0.0, -0.0, -1.0, -0.0, 0.0, -941.0, 284.0, -3179.0, 1.0, 'ccontrollvl3x.x_PEObject103_Tspo.lua', 'ComplexNavMeshPlane',0x45e8dd5e, 0xeae611ed, 0x9d4f9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject105_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 187.0, 0.0, -1348.0, 1.0, 'ccontrollvl3x.x_PEObject105_nazi.lua', 'ComplexNavMeshPlane',0x3efbd80f, 0xeb1b11ed, 0xba359ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject8_TspotRep",1.0, 0.0, 0.0, 0.0, -0.0, 0.004632, 0.999989, 0.0, -0.0, -0.999989, 0.004632, 0.0, 967.250827, 271.0, -97.932148, 1.0, 'ccontrollvl3x.x_PEObject8_TspotR.lua', 'ComplexNavMeshPlane',0x124cf5c0, 0x13a511e0, 0xa20c0025, 0xd3ac504f)
+
+LevelLoader.CreateGameObject("PEObject62_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1865.0, 100.0, 939.0, 1.0, 'ccontrollvl3x.x_PEObject62_pPlan.lua', 'ComplexNavMeshPlane',0x23c6170f, 0xeadd11ed, 0xb6b29ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject81_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, -311.673, 100.0, -2466.0, 1.0, 'ccontrollvl3x.x_PEObject81_pPlan.lua', 'ComplexNavMeshPlane',0x619aa79e, 0xeae111ed, 0x95d39ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject97_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 916.994393, 0.0, 1958.996867, 1.0, 'ccontrollvl3x.x_PEObject97_Tstre.lua', 'ComplexNavMeshPlane',0x234c5991, 0xeae511ed, 0x824a9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject108_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, -778.0, 0.0, -2341.0, 1.0, 'ccontrollvl3x.x_PEObject108_nazi.lua', 'ComplexNavMeshPlane',0x54329980, 0xeb1b11ed, 0xb0a29ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject106_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, -1116.0, 0.0, -172.0, 1.0, 'ccontrollvl3x.x_PEObject106_nazi.lua', 'ComplexNavMeshPlane',0x43eca51e, 0xeb1b11ed, 0x824c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject91_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 303.327, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject91_pPlan.lua', 'ComplexNavMeshPlane',0xae57aa4f, 0xeae311ed, 0x99949ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject74_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, 1557.0, 100.0, -621.0, 1.0, 'ccontrollvl3x.x_PEObject74_pPlan.lua', 'ComplexNavMeshPlane',0x4aa95a5e, 0xeae011ed, 0x927c9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject94_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 297.0, 100.0, 1226.0, 1.0, 'ccontrollvl3x.x_PEObject94_pPlan.lua', 'ComplexNavMeshPlane',0x236e2ede, 0xeae411ed, 0x9c179ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject63_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1873.0, 100.0, 316.0, 1.0, 'ccontrollvl3x.x_PEObject63_pPlan.lua', 'ComplexNavMeshPlane',0x5500c81e, 0xeadd11ed, 0xafc59ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject86_pPlane1",0.0, 0.0, 0.25, 0.0, 0.25, 0.0, -0.0, 0.0, -0.0, 0.25, 0.0, 0.0, 2158.0, 100.0, -2466.0, 1.0, 'ccontrollvl3x.x_PEObject86_pPlan.lua', 'ComplexNavMeshPlane',0xf3014a8f, 0xeae211ed, 0x9cab9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject45_nazi_rep",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 199.107586, 0.0, -0.0, 1.0, 'ccontrollvl3x.x_PEObject45_nazi_.lua', 'ComplexNavMeshPlane',0x2bda3070, 0x2bfc11e4, 0x9209b8e8, 0x560d92e3)
+
+LevelLoader.CreateGameObject("PEObject47_ComplexNavPlane",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 0.0, 0.0, -0.0, 1.0, 'ccontrollvl3x.x_PEObject47_Compl.lua', 'ComplexNavMeshPlane',0x4d0df000, 0xe31911ed, 0x9d0b9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject6_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 966.901092, 0.0, -96.658013, 1.0, 'ccontrollvl3x.x_PEObject6_Tstree.lua', 'ComplexNavMeshPlane',0x0f715440, 0x137d11e0, 0x9f3a0025, 0xd3ac504f)
+
+LevelLoader.CreateGameObject("PEObject65_pPlane1",0.25, 0.0, -0.0, 0.0, 0.0, 0.0, -0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1869.0, 100.0, -914.0, 1.0, 'ccontrollvl3x.x_PEObject65_pPlan.lua', 'ComplexNavMeshPlane',0x9883cd40, 0xeadd11ed, 0x90fe9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject53_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -2.0, 100.0, -319.0, 1.0, 'ccontrollvl3x.x_PEObject53_pPlan.lua', 'ComplexNavMeshPlane',0x33a784a1, 0xeada11ed, 0x9d369ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject52_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1869.0, 100.0, -319.0, 1.0, 'ccontrollvl3x.x_PEObject52_pPlan.lua', 'ComplexNavMeshPlane',0x0fb23221, 0xeada11ed, 0xa5d19ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject83_pPlane1",0.0, 0.0, 0.25, 0.0, -0.25, 0.0, -0.0, 0.0, -0.0, -0.25, 0.0, 0.0, 931.0, 100.0, -2466.0, 1.0, 'ccontrollvl3x.x_PEObject83_pPlan.lua', 'ComplexNavMeshPlane',0xb30824f0, 0xeae111ed, 0xb0719ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject51_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, -1895.0, 100.0, 1535.0, 1.0, 'ccontrollvl3x.x_PEObject51_pPlan.lua', 'ComplexNavMeshPlane',0xe8c34eb0, 0xead911ed, 0xbbd39ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject58_pPlane1",-0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, -0.0, 0.25, 0.0, 0.0, 1218.0, 100.0, -1536.0, 1.0, 'ccontrollvl3x.x_PEObject58_pPlan.lua', 'ComplexNavMeshPlane',0x56e1a800, 0xeadb11ed, 0x924a9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject98_Tstreetlight",1.0, 0.0, -0.0, 0.0, 0.0, 1.0, -0.0, 0.0, -0.0, -0.0, 1.0, 0.0, 2629.994393, 0.0, 296.996867, 1.0, 'ccontrollvl3x.x_PEObject98_Tstre.lua', 'ComplexNavMeshPlane',0x2e6402b0, 0xeae511ed, 0xa20a9ceb, 0xe89a41dc)
+
+LevelLoader.CreateGameObject("PEObject102_TspotRep",1.0, 0.0, -0.0, 0.0, 0.0, -0.0, 1.0, 0.0, -0.0, -1.0, -0.0, 0.0, -938.0, 276.0, -1242.0, 1.0, 'ccontrollvl3x.x_PEObject102_Tspo.lua', 'ComplexNavMeshPlane',0x2c1a444f, 0xeae611ed, 0x95b69ceb, 0xe89a41dc)
+

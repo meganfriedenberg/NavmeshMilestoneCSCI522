@@ -64,6 +64,10 @@ struct SoldierNPCBehaviorSM : public PE::Components::Component
 	Vector3 playerPos; // can't make this a cell unfortunately
 	bool isPlayerSeen = false; // is the player visible to the soldier? if so, chase it. otherwise, move randomly
 	bool panicPathing = false; // if for some reason the state machine gets messed up, randomly select nodes
+
+	float randColor1 = 1.0f;
+	float randColor2 = 1.0f;
+	float randColor3 = 1.0f;
 };
 
 };

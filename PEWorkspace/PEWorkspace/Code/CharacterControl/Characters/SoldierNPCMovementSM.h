@@ -83,6 +83,8 @@ struct SoldierNPCMovementSM : public PE::Components::Component
 	// State
 	Vector3 m_targetPostion;
 	States m_state;
+
+	bool isRunning = false;
 };
 
 };

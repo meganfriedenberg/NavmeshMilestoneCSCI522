@@ -35,6 +35,10 @@ SoldierNPCBehaviorSM::SoldierNPCBehaviorSM(PE::GameContext &context, PE::MemoryA
 
 void SoldierNPCBehaviorSM::start()
 {
+	randColor1 = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 1.0f));
+	randColor2 = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 1.0f));
+	randColor3 = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 1.0f));
+
 	if (m_havePatrolWayPoint)
 	{
 		m_state = WAITING_FOR_WAYPOINT; // will update on next do_UPDATE()
@@ -162,12 +166,12 @@ void SoldierNPCBehaviorSM::do_PRE_RENDER_needsRC(PE::Events::Event *pEvt)
 					Vector3 color(1.0f, 1.0f, 0);
 					Vector3 linepts[] = {pos, color, target, color};
 					
-					DebugRenderer::Instance()->createLineMesh(true, base,  &linepts[0].m_x, 2, 0);// send event while the array is on the stack
+					//DebugRenderer::Instance()->createLineMesh(true, base,  &linepts[0].m_x, 2, 0);// send event while the array is on the stack
 					sent = true;
 				}
 			}
-			if (!sent) // if for whatever reason we didnt retrieve waypoint info, send the event with transform only
-				DebugRenderer::Instance()->createLineMesh(true, base, NULL, 0, 0);// send event while the array is on the stack
+			//if (!sent) // if for whatever reason we didnt retrieve waypoint info, send the event with transform only
+				//DebugRenderer::Instance()->createLineMesh(true, base, NULL, 0, 0);// send event while the array is on the stack
 		}
 	}
 	if (currPath.size() > 0)
@@ -175,10 +179,10 @@ void SoldierNPCBehaviorSM::do_PRE_RENDER_needsRC(PE::Events::Event *pEvt)
 		SoldierNPC* pSol = getFirstParentByTypePtr<SoldierNPC>();
 		PE::Handle hSoldierSceneNode = pSol->getFirstComponentHandle<PE::Components::SceneNode>();
 		Matrix4x4 base = hSoldierSceneNode.getObject<PE::Components::SceneNode>()->m_worldTransform;
-		DebugRenderer::Instance()->createLineTwoPoints(base.getPos(), currPath[0], Vector3(1.0f, 1.0f, 1.0f), 0, 1.0f);
+		//DebugRenderer::Instance()->createLineTwoPoints(base.getPos(), currPath[0], Vector3(1.0f, 1.0f, 1.0f), 0, 1.0f);
 		for (int i = 0; i < currPath.size()-1; i++)
 		{
-			DebugRenderer::Instance()->createLineTwoPoints(currPath[i], currPath[i+1], Vector3(1.0f, 0.0f, 1.0f), 0, 1.0f);
+			DebugRenderer::Instance()->createLineTwoPoints(currPath[i], currPath[i+1], Vector3(randColor1, randColor2, randColor3), 0, 1.0f);
 		}
 	}
 }
@@ -266,16 +270,23 @@ void SoldierNPCBehaviorSM::do_UPDATE(PE::Events::Event *pEvt)
 				panicPathing = true;
 				updatePath(false);
 			}
-			PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
-			Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
+			if (currIndex < currPath.size())
+			{
+				PE::Handle h("SoldierNPCMovementSM_Event_MOVE_TO", sizeof(SoldierNPCMovementSM_Event_MOVE_TO));
+				Events::SoldierNPCMovementSM_Event_MOVE_TO* pEvt = new(h) SoldierNPCMovementSM_Event_MOVE_TO(currPath[currIndex]);
 
-			pEvt->m_running = isPlayerSeen;
+				pEvt->m_running = isPlayerSeen;
 
-			m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
-			// release memory now that event is processed
-			h.release();
+				m_hMovementSM.getObject<Component>()->handleEvent(pEvt);
+				// release memory now that event is processed
+				h.release();
+			}
 
 		}
+	}
+	if (m_state == IDLE)
+	{
+		m_state = WAITING_FOR_WAYPOINT;
 	}
 }
 
@@ -310,7 +321,6 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 		soldierCell = (m_pContext)->getNavMesh()->getCurrentCell(newCellPos);
 	}
 
-	Cell* randomCell = (m_pContext)->getNavMesh()->getCell(7);
 
 	// if you only want A* uncomment this
 	
@@ -336,9 +346,16 @@ void CharacterControl::Components::SoldierNPCBehaviorSM::updatePath(bool isChasi
 		currIndex = 1;
 	}
 
-	if(!currPath.empty())
+	if(!currPath.empty() && currIndex < currPath.size())
 		while ((base.getPos() - currPath[currIndex]).lengthSqr() < 0.01f && currIndex < currPath.size() - 1)
+		{
 			currIndex++;
+			if (currIndex >= currPath.size())
+			{
+				break;
+			}
+		}
+
 
 }
 
